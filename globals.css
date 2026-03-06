@@ -322,22 +322,118 @@
     opacity: 1;
   }
 
-  /* Header */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--space-base);
-  }
-
-  /* Footer */
-  footer {
-    padding: var(--space-lg);
-  }
-
   /* Selection */
   ::selection {
     background-color: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    flex-direction: column; /* stack title and hr */
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-base);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    text-align: center;
+  }
+
+  header #title {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-extrabold);
+    margin-bottom: var(--space-sm);
+  }
+
+  header hr {
+    width: 50%;
+    border-top: 1px solid hsl(var(--primary-foreground));
+    margin: var(--space-sm) 0 0 0;
+  }
+
+  /* Welcome */
+  #welcome {
+    padding: var(--space-sm) var(--space-md);
+    color: hsl(var(--accent-foreground));
+    background: hsl(var(--accent));
+    font-size: var(--text-sm);
+    text-align: center;
+  }
+
+  /* Navigation bar */
+  .navBar {
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    justify-content: center;
+    gap: var(--space-lg);
+  }
+
+  .navBar .navigation {
+    color: hsl(var(--secondary-foreground));
+    font-weight: var(--font-semibold);
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  .navBar .navigation:hover {
+    color: hsl(var(--secondary));
+    text-decoration: none;
+  }
+
+  /* Banner image */
+  #banner {
+    display: block;
+    margin: 0 auto var(--space-2xl) auto;
+    width: 100%; /* max width relative to viewport */
+    height: auto; /* maintain aspect ratio */
+    max-height: 300px; /* constrain height */
+    object-fit: cover; /* crop if necessary to fill space nicely */
+    filter: brightness(80%);
+  }
+
+  /* Footer */
+  footer {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+    text-align: center;
+    padding: var(--space-2xl) var(--space-base);
+  }
+
+  footer #title {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    margin-bottom: var(--space-sm);
+  }
+
+  footer .contacts {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-sm);
+  }
+
+  footer p:last-child {
+    font-size: var(--text-sm);
+    color: hsl(var(--muted));
+    margin-top: var(--space-lg);
+  }
+
+  /* Go to bottom and top links */
+  a[href='#bottomPage'],
+  a[href='#title'] {
+    text-align: center;
+    font-weight: var(--font-semibold);
+    color: hsl(var(--muted-foreground));
+    padding: var(--space-sm) var(--space-md);
+    margin: var(--space-lg) 0;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  a[href='#bottomPage']:hover,
+  a[href='#title']:hover {
+    color: hsl(var(--primary));
+    text-decoration: none;
   }
 }

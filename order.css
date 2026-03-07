@@ -146,3 +146,40 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   transition: border-color 0.2s;
   grid-column: 1 / -1;
 }
+
+.coffee form input[type='text']:focus,
+.coffee form input[type='email']:focus,
+.coffee form select:focus {
+  border-color: #6b4f2e;
+}
+
+/* First Name — left column, rows 1–2 */
+.coffee form label[for='fname'] {
+  grid-column: 1;
+  grid-row: 1;
+  margin-top: 0;
+}
+
+.coffee form input#fname {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Last Name — right column, rows 1–2 */
+.coffee form label[for='lname'] {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+}
+
+/* Last Name — right column, rows 1–2 */
+.coffee form label[for='lname'] {
+  grid-column: 2;
+  grid-row: 1;
+  margin-top: 0;
+}
+
+.coffee form input#lname {
+  grid-column: 2;
+  grid-row: 2;
+}

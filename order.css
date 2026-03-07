@@ -126,7 +126,7 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #888;
+  color: rgb(102, 85, 77);
   margin-top: 1.25rem;
   margin-bottom: 0.4rem;
   display: block;

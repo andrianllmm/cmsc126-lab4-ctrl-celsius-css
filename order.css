@@ -183,3 +183,25 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   grid-column: 2;
   grid-row: 2;
 }
+
+/* Submit button */
+.coffee form input[type='submit'] {
+  grid-column: 1 / -1;
+  grid-row: 7;
+  background: #6b4f2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2rem;
+  transition: background 0.2s;
+}
+
+.coffee form input[type='submit']:hover {
+  background: #4a3320;
+}

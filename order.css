@@ -132,3 +132,17 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   display: block;
   grid-column: 1 / -1;
 }
+
+/* Inputs & Select */
+.coffee form input[type='text'],
+.coffee form input[type='email'],
+.coffee form select {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  padding: 0.65rem 0.9rem;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  grid-column: 1 / -1;
+}

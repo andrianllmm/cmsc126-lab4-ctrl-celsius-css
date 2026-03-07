@@ -120,3 +120,15 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
 .coffee form br {
   display: none;
 }
+
+/* Labels */
+.coffee form label {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+  margin-top: 1.25rem;
+  margin-bottom: 0.4rem;
+  display: block;
+  grid-column: 1 / -1;
+}

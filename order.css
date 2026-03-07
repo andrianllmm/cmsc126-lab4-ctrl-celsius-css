@@ -80,4 +80,23 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   text-align: center;
   font-weight: bold;
   padding: 15px 0;
+  position: relative;
+}
+
+.coffeeTitle::before,
+.coffeeTitle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 60px); /* keeps space around the word */
+  height: 1px;
+  background: #b8ada3;
+}
+
+.coffeeTitle::before {
+  left: 10px;
+}
+
+.coffeeTitle::after {
+  right: 10px;
 }

@@ -41,7 +41,6 @@ header #title {
 #coffee_choices {
   width: 97%;
   border-spacing: 5px; /* space between items */
-  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
@@ -51,12 +50,17 @@ header #title {
   aspect-ratio: 1 / 1; /* makes the image a perfect square */
   object-fit: cover; /* prevents distortion */
   display: block;
-  border-radius: var(--radius);
+  border-radius: 5px;
   box-shadow: var(--shadow);
   outline: 1px solid rgba(0, 0, 0, 0.06);
   transition:
     transform 0.5s ease,
     box-shadow 0.4s ease;
+}
+
+tr:has(td > img.coffeeImg) td:hover .coffeeImg {
+  transform: scale(1.04);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
 }
 
 #coffee_choices td {
@@ -65,6 +69,7 @@ header #title {
 }
 
 .label {
+  vertical-align: top;
   text-align: center;
 }
 

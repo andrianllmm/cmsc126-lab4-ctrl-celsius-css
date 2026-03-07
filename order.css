@@ -39,8 +39,8 @@ header #title {
 }
 
 #coffee_choices {
-  width: 95%;
-  border-spacing: 9px; /* space between items */
+  width: 97%;
+  border-spacing: 5px; /* space between items */
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -61,12 +61,11 @@ header #title {
 
 #coffee_choices td {
   width: calc(100% / 7); /* makes 7 equal columns */
-  padding: 10.22px;
+  padding: 10px;
 }
 
 .label {
   text-align: center;
-  padding-top: 6px;
 }
 
 .coffeeTitle {

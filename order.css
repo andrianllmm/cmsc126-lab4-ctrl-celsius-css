@@ -13,6 +13,7 @@
 .imgBanner {
   margin-top: -24px;
   filter: brightness(60%); /* makes image slightly dim */
+  max-height: 400px;
 }
 
 header {

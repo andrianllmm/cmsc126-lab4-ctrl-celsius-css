@@ -111,9 +111,12 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   grid-template-columns: 1fr 1fr;
   column-gap: 1.25rem;
 
-  /* Enhanced shadow */
   box-shadow:
     0 8px 20px rgba(0, 0, 0, 0.12),
     0 12px 40px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease;
+}
+
+.coffee form br {
+  display: none;
 }

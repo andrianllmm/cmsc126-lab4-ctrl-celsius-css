@@ -12,7 +12,7 @@
 
 .imgBanner {
   margin-top: -24px;
-  filter: brightness(60%); /* makes image slightly dim */
+  filter: brightness(60%);
   max-height: 400px;
   margin-bottom: 15px;
 }
@@ -40,7 +40,7 @@ header #title {
 
 #coffee_choices {
   width: 97%;
-  border-spacing: 5px; /* space between items */
+  border-spacing: 5px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -48,7 +48,7 @@ header #title {
 .coffeeImg {
   width: 100%;
   aspect-ratio: 1 / 1; /* makes the image a perfect square */
-  object-fit: cover; /* prevents distortion */
+  object-fit: cover;
   display: block;
   border-radius: 5px;
   box-shadow: var(--shadow);
@@ -79,7 +79,6 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
 .coffeeTitle {
   text-align: center;
   font-weight: bold;
-  padding: 15px 0;
   position: relative;
 }
 
@@ -99,4 +98,17 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
 
 .coffeeTitle::after {
   right: 10px;
+}
+
+.coffee form {
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid #ddd;
+  max-width: 560px;
+  margin: 50px auto 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 1.25rem;
 }

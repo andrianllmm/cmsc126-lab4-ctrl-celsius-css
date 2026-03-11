@@ -84,7 +84,13 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
-tr:has(.coffeeImg:hover) + tr .label {
+tr:has(td:nth-child(1) .coffeeImg:hover) + tr td:nth-child(1),
+tr:has(td:nth-child(2) .coffeeImg:hover) + tr td:nth-child(2),
+tr:has(td:nth-child(3) .coffeeImg:hover) + tr td:nth-child(3),
+tr:has(td:nth-child(4) .coffeeImg:hover) + tr td:nth-child(4),
+tr:has(td:nth-child(5) .coffeeImg:hover) + tr td:nth-child(5),
+tr:has(td:nth-child(6) .coffeeImg:hover) + tr td:nth-child(6),
+tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
   color: #6b4f2e;
   transition: color 0.2s;
 }
@@ -108,7 +114,7 @@ tr:has(.coffeeImg:hover) + tr .label {
   position: relative;
   font-family: var(--font-display);
   font-size: 32px;
-  font-weight: 500;
+  font-weight: 400;
   height: 40px;
   letter-spacing: 0.04em;
 }

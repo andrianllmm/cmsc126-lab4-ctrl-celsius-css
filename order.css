@@ -85,7 +85,7 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
 }
 
 tr + tr td {
-  transition: color 0.4s;
+  transition: color 0.2s;
 }
 
 tr:has(td:nth-child(1) .coffeeImg:hover) + tr td:nth-child(1),
@@ -107,7 +107,7 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
   vertical-align: top;
   text-align: center;
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: var(--text-lg);
   letter-spacing: 0.04em;
 }
 
@@ -116,8 +116,8 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
   font-weight: bold;
   position: relative;
   font-family: var(--font-display);
-  font-size: 32px;
-  font-weight: 400;
+  font-size: var(--text-3xl);
+  font-weight: var(--font-normal);
   height: 40px;
   letter-spacing: 0.04em;
 }
@@ -129,7 +129,7 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
   top: 50%;
   width: calc(50% - 100px);
   height: 1px;
-  background: #b8ada3;
+  background: hsl(var(--border));
 }
 
 .coffeeTitle::before {
@@ -142,7 +142,7 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 
 .coffee form {
   background: hsl(var(--card));
-  border-radius: 10px;
+  border-radius: var(--radius-md);
   padding: 2.5rem;
   border: 1px solid #ddd;
   max-width: 560px;
@@ -163,7 +163,7 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 
 /* Labels */
 .coffee form label {
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgb(102, 85, 77);
@@ -177,12 +177,12 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 .coffee form input[type='text'],
 .coffee form input[type='email'],
 .coffee form select {
-  border: 2px solid #ccc;
-  border-radius: 3px;
+  border: 2px solid hsl(var(--muted));
+  border-radius: var(--radius-xs);
   padding: 0.65rem 0.9rem;
   outline: none;
   width: 100%;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   transition: border-color 0.2s;
   grid-column: 1 / -1;
 }
@@ -190,7 +190,7 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 .coffee form input[type='text']:focus,
 .coffee form input[type='email']:focus,
 .coffee form select:focus {
-  border-color: #6b4f2e;
+  border-color: hsl(var(--primary));
 }
 
 /* First Name — left column, rows 1–2 */
@@ -228,13 +228,13 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 .coffee form input[type='submit'] {
   grid-column: 1 / -1;
   grid-row: 7;
-  background: #6b4f2e;
+  background: hsl(var(--primary));
   color: #fff;
   border: none;
   border-radius: 6px;
   padding: 0.85rem;
   font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--space-xxs);
   text-transform: uppercase;
   cursor: pointer;
   width: 100%;
@@ -243,5 +243,5 @@ tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
 }
 
 .coffee form input[type='submit']:hover {
-  background: #4a3320;
+  background: hsl(var(--accent));
 }

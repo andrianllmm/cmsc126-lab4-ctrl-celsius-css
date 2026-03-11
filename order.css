@@ -12,8 +12,8 @@ body {
 h1,
 h2 {
   font-family: var(--font-display);
-  letter-spacing: 0.04em;
-  font-weight: 600;
+  letter-spacing: var(--space-xxs);
+  font-weight: var(--font-bold);
 }
 
 .navBar {
@@ -45,7 +45,7 @@ header {
 }
 
 header #title {
-  font-size: 50px;
+  font-size: var(--text-5xl);
   letter-spacing: 3px;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
@@ -68,8 +68,8 @@ header #title {
   aspect-ratio: 1 / 1; /* makes the image a perfect square */
   object-fit: cover;
   display: block;
-  border-radius: 5px;
-  box-shadow: var(--shadow);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   outline: 1px solid rgba(0, 0, 0, 0.06);
 
   transition:
@@ -84,6 +84,10 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
+tr + tr td {
+  transition: color 0.4s;
+}
+
 tr:has(td:nth-child(1) .coffeeImg:hover) + tr td:nth-child(1),
 tr:has(td:nth-child(2) .coffeeImg:hover) + tr td:nth-child(2),
 tr:has(td:nth-child(3) .coffeeImg:hover) + tr td:nth-child(3),
@@ -91,8 +95,7 @@ tr:has(td:nth-child(4) .coffeeImg:hover) + tr td:nth-child(4),
 tr:has(td:nth-child(5) .coffeeImg:hover) + tr td:nth-child(5),
 tr:has(td:nth-child(6) .coffeeImg:hover) + tr td:nth-child(6),
 tr:has(td:nth-child(7) .coffeeImg:hover) + tr td:nth-child(7) {
-  color: #6b4f2e;
-  transition: color 0.2s;
+  color: hsl(var(--primary));
 }
 
 #coffee_choices td {

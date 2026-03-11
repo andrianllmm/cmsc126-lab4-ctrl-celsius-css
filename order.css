@@ -84,6 +84,11 @@ tr:has(td > img.coffeeImg) td:hover .coffeeImg {
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
 
+tr:has(.coffeeImg:hover) + tr .label {
+  color: #6b4f2e;
+  transition: color 0.2s;
+}
+
 #coffee_choices td {
   width: calc(100% / 7); /* makes 7 equal columns */
   padding: 10px;

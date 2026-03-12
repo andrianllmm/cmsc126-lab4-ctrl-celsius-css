@@ -335,7 +335,7 @@
     align-items: center;
     justify-content: center;
     padding: var(--space-lg) var(--space-base);
-    background: hsl(var(--primary));
+    /* background: hsl(var(--primary)); */
     color: hsl(var(--primary-foreground));
     text-align: center;
   }

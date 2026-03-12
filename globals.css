@@ -1,15 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* from https://fonts.google.com/specimen/Playfair+Display */
 
-/*
+/* ==================================================
   Layers
   Learn: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer
- */
+  ================================================== */
 @layer reset, tokens, base, components;
 
-/*
+/* ==================================================
   Minimal CSS reset
   Inspiration: https://tailwindcss.com/docs/preflight
-*/
+  ================================================== */
 @layer reset {
   *,
   ::after,
@@ -58,10 +60,10 @@
   }
 }
 
-/*
+/* ==================================================
   Design tokens (variables)
   Learn: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties
-*/
+  ================================================== */
 @layer tokens {
   :root {
     /* Spacing scale */
@@ -172,9 +174,9 @@
   }
 }
 
-/*
+/* ==================================================
   Base styles
-*/
+  ================================================== */
 @layer base {
   /* Set font and color */
   html {
@@ -284,9 +286,9 @@
   }
 }
 
-/*
+/* ==================================================
   Components
-*/
+  ================================================== */
 @layer components {
   /* Links */
   a {
@@ -596,6 +598,9 @@
   }
 }
 
+/* ==================================================
+  Pages
+  ================================================== */
 @layer pages {
   /* --------------------------
    Home Page

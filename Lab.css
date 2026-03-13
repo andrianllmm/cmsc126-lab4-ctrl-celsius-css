@@ -7,6 +7,8 @@
   Learn: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer
   ================================================== */
 @layer reset, tokens, base, components;
+/* CSS layering is used here to separate concerns and allow for easier overrides later.
+   Can be questioned because not all browsers support @layer fully yet, but modern ones do. */
 
 /* ==================================================
   Minimal CSS reset
@@ -16,15 +18,16 @@
   *,
   ::after,
   ::before {
-    /* margins reset */
+    /* Margins reset */
     margin: 0;
     padding: 0;
-    /* border styles reset */
+    /* Border styles reset */
     box-sizing: border-box;
     border: 0 solid;
   }
 
-  /* unstyle headings */
+  /* Unstyle headings */
+  /* Resetting heading styles allows us to apply our own consistent typography */
   h1,
   h2,
   h3,
@@ -35,13 +38,14 @@
     font-weight: inherit;
   }
 
-  /* unstyle lists */
+  /* Unstyle lists */
+  /* Resetting list styles allows us to apply our own custom list styles */
   ul,
   ol {
     list-style: none;
   }
 
-  /* make images block-level and constrained  */
+  /* Make images block-level and constrained so they don't overflow the page */
   img,
   svg,
   video,
@@ -63,6 +67,7 @@
 /* ==================================================
   Design tokens (variables)
   Learn: https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties
+  Inspired by Figma design tokens, Tailwind CSS, and shadcn/ui
   ================================================== */
 @layer tokens {
   :root {
@@ -137,6 +142,7 @@
     --font-black: 900;
 
     /* Color system */
+    /* Using HSL allows easier runtime adjustments and light/dark mode support */
     --background: 28 28% 88%;
     --foreground: 25 40% 10%;
 
@@ -296,11 +302,13 @@
     text-decoration: none;
   }
 
+  /* Link hover */
   a:hover {
     text-decoration: underline;
     color: hsl(var(--primary));
   }
 
+  /* Link focus (for accessibility) */
   a:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 1px;
@@ -328,14 +336,19 @@
     transition: background 0.15s ease;
   }
 
+  /* Button hover */
   button:hover,
   input[type='button']:hover,
   input[type='submit']:hover,
   input[type='reset']:hover {
-    /* Uses color-mix: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix */
+    /* Darken the button on hover using color-mix in the Oklab color space.
+     Oklab ensures perceptually uniform blending, so the color darkens smoothly.
+     Modern feature; may not work in older browsers. */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/color-mix */
     background: color-mix(in oklab, hsl(var(--primary)) 90%, black);
   }
 
+  /* Button focus (for accessibility) */
   button:focus,
   input[type='button']:focus,
   input[type='submit']:focus,
@@ -344,6 +357,7 @@
     outline-offset: 1px;
   }
 
+  /* Button disabled (not used in this project) */
   button:disabled,
   input[type='button']:disabled,
   input[type='submit']:disabled,
@@ -367,13 +381,14 @@
     border-radius: var(--radius-md);
     padding: var(--space-sm) var(--space-base);
     width: 100%;
-    grid-column: 1 / -1;
+    grid-column: 1 / -1; /* makes the input span the entire row */
 
     transition:
       border 0.15s ease,
       outline 0.15s ease;
   }
 
+  /* Form input focus (for accessibility) */
   input:focus,
   textarea:focus,
   select:focus {
@@ -381,13 +396,14 @@
     outline-offset: 1px;
   }
 
+  /* Form input placeholder */
   input::placeholder,
   textarea::placeholder {
     color: hsl(var(--muted-foreground));
     opacity: 1;
   }
 
-  /* Selection */
+  /* Selection*/
   ::selection {
     background-color: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
@@ -400,7 +416,6 @@
     align-items: center;
     justify-content: center;
     padding: var(--space-lg) var(--space-base);
-    /* background: hsl(var(--primary)); */
     color: hsl(var(--primary-foreground));
     text-align: center;
 
@@ -456,21 +471,24 @@
 
   /* Navigation bar */
   .navBar {
-    padding: var(--space-sm) var(--space-md);
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: var(--space-lg);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    padding: var(--space-sm) var(--space-md);
+
+    height: 50px;
+    position: sticky; /* stays at the top at all times */
+    top: 0; /* position relative to the top of the page */
+    z-index: 1000; /* on top of other elements */
+
+    /* glassy background */
     background-color: hsl(var(--background) / 0.8);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    gap: 45px;
-    height: 55px;
-    align-items: center;
   }
 
+  /* Navbar links */
   .navBar .navigation {
     color: hsl(var(--secondary-foreground));
     font-weight: var(--font-semibold);
@@ -487,22 +505,20 @@
   /* Banner image */
   #banner {
     display: block;
-    margin: 0 auto var(--space-2xl) auto;
-    margin-top: -24px;
-    margin-bottom: 15px;
+    margin: -24px auto 16px auto;
     width: 100%; /* max width relative to viewport */
     height: auto; /* maintain aspect ratio */
     max-height: 400px; /* constrain height */
     object-fit: cover; /* crop if necessary to fill space nicely */
-    filter: brightness(60%);
+    filter: brightness(60%); /* darken */
   }
 
   /* Welcome */
   #welcome {
     padding: var(--space-sm) var(--space-md);
-    color: hsl(var(--accent-foreground));
-    background: hsl(var(--accent));
-    font-size: var(--text-sm);
+    color: hsl(var(--muted) / 0.8);
+    background: hsl(var(--foreground));
+    font-size: clamp(var(--text-xs), 2vw, var(--text-sm));
     text-align: center;
   }
 
@@ -514,17 +530,20 @@
     padding: var(--space-2xl) var(--space-base);
   }
 
+  /* Footer title */
   footer #title {
     font-size: var(--text-2xl);
     font-weight: var(--font-bold);
     margin-bottom: var(--space-sm);
   }
 
+  /* Footer contacts */
   footer .contacts {
     font-size: var(--text-base);
     margin-bottom: var(--space-sm);
   }
 
+  /* Copyright notice */
   footer p:last-child {
     font-size: var(--text-sm);
     color: hsl(var(--muted));
@@ -537,14 +556,17 @@
     text-align: center;
     font-weight: var(--font-semibold);
     color: hsl(var(--muted-foreground));
+
     display: block;
     padding: var(--space-sm) var(--space-md);
     margin: auto var(--space-lg);
+
     transition:
       background 0.2s,
       color 0.2s;
   }
 
+  /* Go to bottom and top links hover */
   a[href='#bottomPage']:hover,
   a[href='#title']:hover {
     color: hsl(var(--primary));
@@ -552,7 +574,7 @@
   }
 
   /* Sections */
-  /* idk why but someone named every section coffee >:( */
+  /* idk why but someone named every SECTION coffee >:( */
   .coffee {
     max-width: 1080px;
     margin: 0 auto;
@@ -561,6 +583,15 @@
     animation: fadeSlideUp 0.8s var(--ease-silk) both;
   }
 
+  /* Sections mobile spacing */
+  @media (max-width: 640px) {
+    .coffee {
+      margin: var(--space-base) var(--space-sm);
+      padding: var(--space-lg) var(--space-base);
+    }
+  }
+
+  /* Sections alternate animation */
   .coffee:nth-child(odd) {
     animation-delay: 0.1s;
   }
@@ -580,14 +611,20 @@
     gap: var(--space-sm);
   }
 
+  /* Section heading line decoration */
   .coffee h2::after {
     content: '';
-    flex: 1;
-    height: 2px;
-    background: linear-gradient(90deg, hsl(var(--primary)), transparent);
+    flex: 1; /* fill the remaining space */
+    height: 2px; /* thick line */
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      transparent
+    ); /* vertical gradient */
   }
 
   /* Keywords */
+  /* Emphasis */
   .emphasis {
     font-style: italic;
     font-weight: var(--font-bold);
@@ -597,22 +634,17 @@
     border-radius: var(--radius-xs);
   }
 
+  /* Term */
   .term {
     font-style: italic;
     color: hsl(var(--accent));
   }
 
+  /* Emphasis element */
   em {
     font-style: italic;
     color: hsl(var(--foreground));
     opacity: 0.9;
-  }
-
-  @media (max-width: 640px) {
-    .coffee {
-      margin: var(--space-base) var(--space-sm);
-      padding: var(--space-lg) var(--space-base);
-    }
   }
 }
 
@@ -633,6 +665,7 @@
       gap: var(--space-md);
       padding: 0;
       margin-top: var(--space-sm);
+
       counter-reset: steps; /* initializes the counter */
     }
 
@@ -640,6 +673,7 @@
     /* Grid layout places the number badge beside the text */
     .coffee ol li {
       counter-increment: steps; /* increments the counter */
+
       display: grid;
       grid-template-columns: 2rem 1fr; /* number badge and text (fills the remaining space) */
       gap: var(--space-md);
@@ -647,41 +681,50 @@
       padding: var(--space-md) var(--space-base);
       border-radius: var(--radius-md);
       border: 1px solid hsl(var(--border));
+
       transition: background 0.2s;
     }
 
+    /* Step hover */
     .coffee ol li:hover {
       background: hsl(var(--muted));
     }
 
-    /* Number Badge */
+    /* Number Badge for each step */
     .coffee ol li::before {
       content: counter(steps);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       width: 2rem;
       height: 2rem;
+
+      border-radius: 50%; /* circle */
+
       background: hsl(var(--primary));
       color: hsl(var(--primary-foreground));
-      border-radius: 50%;
+
       font-weight: var(--font-bold);
       font-size: var(--text-sm);
-      flex-shrink: 0;
+      flex-shrink: 0; /* shrink to fit */
     }
 
-    /* Home Coffee image */
+    /* Home coffee image */
     .coffee img {
       display: block;
       margin: var(--space-sm) auto;
       max-height: 300px;
       object-fit: cover;
       border-radius: var(--radius-lg);
+
       transition:
         transform 0.35s ease,
         filter 0.35s ease;
     }
 
+    /* Home coffee image hover */
     .coffee img:hover {
       transform: scale(1.025);
       filter: brightness(90%) saturate(115%);
@@ -702,11 +745,13 @@
         box-shadow 0.2s ease;
     }
 
+    /* Order button hover */
     #orderCoffee:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 36px hsl(var(--primary) / 0.4);
     }
 
+    /* Order button active (for accessibility) */
     #orderCoffee:active {
       transform: translateY(0);
       box-shadow: 0 2px 8px hsl(var(--primary) / 0.25);
@@ -822,7 +867,7 @@
       border-radius: var(--radius-md);
       padding: var(--space-2xl) var(--space-xl);
       max-width: 560px;
-      margin: 50px auto 0 auto;
+      margin: 0 auto 0 auto; /* center horizontally */
 
       /* 2-column grid so First Name and Last Name sit side by side */
       display: grid;
@@ -832,6 +877,7 @@
       box-shadow:
         0 8px 10px rgba(0, 0, 0, 0.08),
         0 12px 30px rgba(0, 0, 0, 0.06);
+
       transition: box-shadow 0.3s ease;
     }
 
@@ -909,14 +955,17 @@
     .coffee:nth-of-type(2) > img.imgBanner {
       width: clamp(120px, 20vw, 220px);
       height: auto; /* maintain aspect ratio */
+
       border-radius: 50%; /* circle */
       border: 3px solid hsl(var(--primary));
       box-shadow: 0 0 20px hsla(var(--primary) / 0.25);
+
       object-fit: contain; /* scale to fit */
       display: block;
       margin: var(--space-xl) auto; /* center */
-      background-color: white; /* white background matching the logo bg */
       padding: 3%;
+
+      background-color: white; /* white background matching the logo bg */
       filter: brightness(80%) grayscale(30%) sepia(20%); /* filter to match theme */
     }
 
@@ -962,22 +1011,23 @@
       border: none;
     }
 
+    /* Coffee Songs for mobile */
     @media (max-width: 640px) {
       /* 1 column for mobile */
+      .coffee ul {
+        grid-template-columns: 1fr;
+      }
+
       .coffee table tr:first-child,
       .coffee table tr:last-child {
         grid-template-columns: repeat(3, 1fr);
-      }
-
-      .coffee ul {
-        grid-template-columns: 1fr;
       }
     }
 
     /* Team */
     .coffee table {
       width: 100%;
-      border-collapse: separate;
+      border-collapse: separate; /* separate borders */
       border-spacing: 0;
       display: block;
     }
@@ -1006,21 +1056,28 @@
     .teamMember {
       width: 100%;
       max-width: 120px;
-      aspect-ratio: 1;
+
+      aspect-ratio: 1; /* square */
       object-fit: cover;
+
       border-radius: var(--radius-lg);
-      display: block;
       border: 2px solid hsla(var(--primary) / 0.25);
       box-shadow: 0 var(--space-xs) var(--space-xl)
         hsla(var(--background) / 0.4);
-      filter: grayscale(20%) sepia(10%);
+
+      display: block;
+
+      filter: grayscale(30%) sepia(15%);
+
       transition:
         transform 0.35s var(--ease-snap),
         filter 0.35s,
         border-color 0.35s;
+
       text-align: center; /* for placeholder */
     }
 
+    /* Team member hover effect */
     .teamMember:hover {
       transform: scale(1.05) translateY(calc(var(--space-xs) * -1));
       filter: grayscale(0%) sepia(0%);
@@ -1028,13 +1085,14 @@
       box-shadow: 0 var(--space-sm) var(--space-xl) hsla(var(--primary) / 0.3);
     }
 
+    /* Team member label */
     .label {
       text-align: center;
       font-weight: var(--font-medium);
       font-size: clamp(var(--text-xs), 2vw, var(--text-base));
+      line-height: 1.4;
       padding: var(--space-sm) var(--space-xxs) 0;
       color: hsl(var(--primary));
-      line-height: 1.4;
     }
 
     /* Make the team table horizontally scrollable on small screens */
@@ -1065,12 +1123,14 @@
       max-width: 800px;
       max-height: 360px;
       object-fit: cover;
-      border-radius: var(--radius-md);
       margin: var(--space-lg) auto;
       margin-top: var(--space-3xl);
-      filter: brightness(0.7) saturate(1.4) sepia(0.15);
+
+      border-radius: var(--radius-md);
       border: 1px solid var(--border);
       box-shadow: 0 var(--space-md) 48px hsla(var(--background) / 0.5);
+
+      filter: brightness(0.7) saturate(1.4) sepia(0.15);
     }
   }
 }

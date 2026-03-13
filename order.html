@@ -1,197 +1,116 @@
 <!-- DO NOT EDIT THIS -->
 
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Order Drinks</title>
-    <link rel="icon" type="image/x-icon" href="images/Coffee-icon.png" />
-    <link rel="stylesheet" type="text/css" href="Lab.css" />
-  </head>
-  <body class="order">
-    <header>
-      <h1 id="title">Vinze and Baboy's Coffee Shop</h1>
-      <hr />
-    </header>
-    <div class="navBar">
-      <a class="navigation" href="home.html">Home</a>
-      <a class="navigation" href="order.html">Order</a>
-      <a class="navigation" href="about.html">About</a>
-    </div>
-    <br />
-    <img
-      id="banner"
-      class="imgBanner"
-      src="Images/CoffeeBanner.jpg"
-      title="Coffee Banner"
-      alt="Coffee Banner"
-    />
-    <a href="#bottomPage">Go to Bottom -></a>
-    <hr />
-    <br />
-    <div class="coffee">
-      <p id="tagline">
-        Check out the different products from our menu. You will surely LOVE
-        them!
-      </p>
-      <h2>MENU</h2>
-      <table id="coffee_choices">
-        <tr>
-          <td class="coffeeTitle" colspan="7">Coffee</td>
-        </tr>
-        <tr>
-          <td>
-            <img class="coffeeImg" src="Images/Espresso.jpg" alt="Espresso" />
-          </td>
-          <td>
-            <img class="coffeeImg" src="Images/Americano.jpg" alt="Americano" />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Vanilla.jpg"
-              alt="Vanilla Latte"
-            />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Mocha.jpg"
-              alt="Dark Chocolate Mocha Latte"
-            />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/White.jpg"
-              alt="White Chocolate Mocha Latte"
-            />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Spanish.jpg"
-              alt="Spanish Latte"
-            />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Vietnamese.jpg"
-              alt="Vietnamese Latte"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Espresso</td>
-          <td class="label">Americano</td>
-          <td class="label">Vanilla Latte</td>
-          <td class="label">Dark Chocolate Mocha Latte</td>
-          <td class="label">White Chocolate Mocha Latte</td>
-          <td class="label">Spanish Latte</td>
-          <td class="label">Vietnamese Latte</td>
-        </tr>
-        <tr>
-          <td class="coffeeTitle" colspan="7">Non Coffee</td>
-        </tr>
-        <tr>
-          <td>
-            <img class="coffeeImg" src="Images/Milkshake.jpg" alt="Milkshake" />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/FruitShake.jpg"
-              alt="Fresh Fruit Shake"
-            />
-          </td>
-          <td>
-            <img class="coffeeImg" src="Images/Matcha.jpg" alt="Matcha Latte" />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Chocolate.jpg"
-              alt="Hot Chocolate"
-            />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Okinawa.jpg"
-              alt="Okinawa Milk Tea"
-            />
-          </td>
-          <td>
-            <img class="coffeeImg" src="Images/Thai.jpg" alt="Thai Milk Tea" />
-          </td>
-          <td>
-            <img
-              class="coffeeImg"
-              src="Images/Hokkaido.jpg"
-              alt="Hokkaido Milk Tea"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td class="label">Milkshake</td>
-          <td class="label">Fresh Fruit Shake</td>
-          <td class="label">Matcha Latte</td>
-          <td class="label">Hot Chocolate</td>
-          <td class="label">Okinawa Milk Tea</td>
-          <td class="label">Thai Milk Tea</td>
-          <td class="label">Hokkaido Milk Tea</td>
-        </tr>
-      </table>
-    </div>
-    <div class="coffee">
-      <form>
-        <label for="fname">First Name:</label>
-        <br />
-        <input type="text" id="fname" name="fname" />
-        <br />
-        <label for="lname">Last Name:</label>
-        <br />
-        <input type="text" id="lname" name="lname" />
-        <br />
-        <label for="mail">E-mail:</label>
-        <br />
-        <input type="email" id="mail" name="lname" />
-        <br />
-        <label for="drink">Choose your Drink</label>
-        <br />
-        <select name="drink" id="drink">
-          <option value="espresso">Espresso</option>
-          <option value="americano">Americano</option>
-          <option value="vanilla">Vanilla Latte</option>
-          <option value="mocha">Dark Chocolate Mocha Latte</option>
-          <option value="white">White Chocolate Mocha Latte</option>
-          <option value="spanish">Spanish Latte</option>
-          <option value="vietnamese">Vietnamese Latte</option>
-          <option value="milkshake">Milkshake</option>
-          <option value="fruit">Fresh Fruit Shake</option>
-          <option value="matcha">Matcha Latte</option>
-          <option value="chocolate">Hot Chocolate</option>
-          <option value="okinawa">Okinawa Milk Tea</option>
-          <option value="thai">Thai Milk Tea</option>
-          <option value="hokkaido">Hokkaido Milk Tea</option>
-        </select>
-        <input type="submit" name="submit" value="Order" />
-      </form>
-    </div>
-    <div>
-      <a href="#title">Back to Top ^</a>
-    </div>
-    <hr />
-    <footer>
-      <p id="title">Vinze and Baboy's Coffee Shop</p>
-      <div class="contacts">
-        Email: vabcoffee@gmail.com
-        <br />
-        Please call +63 987 654 3210 for inquiries
-      </div>
-      <p class="">All Rights Reserved 2026</p>
-    </footer>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Order Drinks</title>
+	<link rel="icon" type="image/x-icon" href="images/Coffee-icon.png">
+	<link rel="stylesheet" type="text/css" href="Lab.css">
+</head>
+<body class="order">
+	<header>
+		<h1 id="title">Vinze and Baboy's Coffee Shop</h1>
+		<hr>
+	</header>
+	<div class="navBar">
+		<a class="navigation" href="home.html">Home</a>
+		<a class="navigation" href="order.html">Order</a>
+		<a class="navigation" href="about.html">About</a>
+	</div>
+	<br>
+	<img id="banner" class="imgBanner" src="Images/CoffeeBanner.jpg" title="Coffee Banner" alt="Coffee Banner"/>
+	<a href="#bottomPage">Go to Bottom -></a>
+	<hr>
+	<br>
+	<div class="coffee">
+		<p id="tagline">Check out the different products from our menu. You will surely LOVE them!</p>
+		<h2>MENU</h2>
+		<table id="coffee_choices">
+			<tr>
+				<td class="coffeeTitle" colspan="7">Coffee</td>
+			</tr>
+			<tr>
+				<td><img class="coffeeImg" src="Images/Espresso.jpg" alt="Espresso"/></td>
+				<td><img class="coffeeImg" src="Images/Americano.jpg" alt="Americano"/></td>
+				<td><img class="coffeeImg" src="Images/Vanilla.jpg" alt="Vanilla Latte"/></td>
+				<td><img class="coffeeImg" src="Images/Mocha.jpg" alt="Dark Chocolate Mocha Latte"/></td>
+				<td><img class="coffeeImg" src="Images/White.jpg" alt="White Chocolate Mocha Latte"/></td>
+				<td><img class="coffeeImg" src="Images/Spanish.jpg" alt="Spanish Latte"/></td>
+				<td><img class="coffeeImg" src="Images/Vietnamese.jpg" alt="Vietnamese Latte"/></td>
+			</tr>
+			<tr>
+				<td class="label">Espresso</td>
+				<td class="label">Americano</td>
+				<td class="label">Vanilla Latte</td>
+				<td class="label">Dark Chocolate Mocha Latte</td>
+				<td class="label">White Chocolate Mocha Latte</td>
+				<td class="label">Spanish Latte</td>
+				<td class="label">Vietnamese Latte</td>
+			</tr>
+			<tr>
+				<td class="coffeeTitle" colspan="7">Non Coffee</td>
+			</tr>
+			<tr>
+				<td><img class="coffeeImg" src="Images/Milkshake.jpg" alt="Milkshake"/></td>
+				<td><img class="coffeeImg" src="Images/FruitShake.jpg" alt="Fresh Fruit Shake"/></td>
+				<td><img class="coffeeImg" src="Images/Matcha.jpg" alt="Matcha Latte"/></td>
+				<td><img class="coffeeImg" src="Images/Chocolate.jpg" alt="Hot Chocolate"/></td>
+				<td><img class="coffeeImg" src="Images/Okinawa.jpg" alt="Okinawa Milk Tea"/></td>
+				<td><img class="coffeeImg" src="Images/Thai.jpg" alt="Thai Milk Tea"/></td>
+				<td><img class="coffeeImg" src="Images/Hokkaido.jpg" alt="Hokkaido Milk Tea"/></td>
+			</tr>
+			<tr>
+				<td class="label">Milkshake</td>
+				<td class="label">Fresh Fruit Shake</td>
+				<td class="label">Matcha Latte</td>
+				<td class="label">Hot Chocolate</td>
+				<td class="label">Okinawa Milk Tea</td>
+				<td class="label">Thai Milk Tea</td>
+				<td class="label">Hokkaido Milk Tea</td>
+			</tr>
+		</table>
+	</div>
+	<div class="coffee">
+		<form>
+			<label for="fname">First Name:</label><br>
+			<input type="text" id="fname" name="fname"><br>
+			<label for="lname">Last Name:</label><br>
+			<input type="text" id="lname" name="lname"><br>
+			<label for="mail">E-mail:</label><br>
+			<input type="email" id="mail" name="lname"><br>
+			<label for="drink">Choose your Drink</label><br>
+			<select name="drink" id="drink">
+				<option value="espresso">Espresso</option>
+				<option value="americano">Americano</option>
+				<option value="vanilla">Vanilla Latte</option>
+				<option value="mocha">Dark Chocolate Mocha Latte</option>
+				<option value="white">White Chocolate Mocha Latte</option>
+				<option value="spanish">Spanish Latte</option>
+				<option value="vietnamese">Vietnamese Latte</option>
+				<option value="milkshake">Milkshake</option>
+				<option value="fruit">Fresh Fruit Shake</option>
+				<option value="matcha">Matcha Latte</option>
+				<option value="chocolate">Hot Chocolate</option>
+				<option value="okinawa">Okinawa Milk Tea</option>
+				<option value="thai">Thai Milk Tea</option>
+				<option value="hokkaido">Hokkaido Milk Tea</option>
+			</select>
+			<input type="submit" name="submit" value="Order">
+		</form>
+	</div>
+	<div>
+		<a href="#title">Back to Top ^</a>
+	</div>
+	<hr>
+	<footer>
+		<p id="title">Vinze and Baboy's Coffee Shop</p>
+		<div class="contacts">
+			Email: vabcoffee@gmail.com <br>
+			Please call +63 987 654 3210 for inquiries
+		</div>
+		<p class="">All Rights Reserved 2026</p>
+	</footer>
+</body>
 </html>
